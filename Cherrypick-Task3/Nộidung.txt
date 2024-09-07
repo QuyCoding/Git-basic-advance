@@ -1,0 +1,19 @@
+Tiền đề
+
+Tạo 2 branch đồng thời từ staging:  feature/Git_3 và Cherry-pick-Task3
+- feature/Git_3 đã tạo PR với 2 commit và chưa merge
+- Cherry-pick-Task3 muốn lấy commit thứ 2 của feature/Git_3
+- Đã thực hiện push origin nhánh Cherry-pick-Task3
+Cách thực hiện : 
+PS D:\Personal Project\Git-basic-advance> git log feature/Git_3 --oneline
+->  3aac36b (origin/feature/Git_3, feature/Git_3)  Task 3 Commit 2
+->  23b8eb2  Task 3 Commit 1
+    74be950 (HEAD -> Cherry-pick-Task3, origin/master, master) Merge pull request #2 from QuyCoding/feature/Git_2
+    0c59401 (origin/feature/Git_2, feature/Git_2) Bổ sung task 2
+    969ad84 Merge branch 'master' of https://github.com/QuyCoding/Git-basic-advance into feature/Git_2
+    d02a5a6 Merge pull request #1 from QuyCoding/feature/Git_1
+    6c553c7 Finis task 2
+    dc69c1a (origin/feature/Git_1, feature/Git_1) Bổ Sung task
+    261f89a Finish task 1
+    4bfd308 Init Base
+

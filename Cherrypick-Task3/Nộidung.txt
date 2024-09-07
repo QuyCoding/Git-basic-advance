@@ -47,7 +47,11 @@ PS D:\Personal Project\Git-basic-advance> git log feature/Git_3 --oneline
     drop d28a27b Add commit1
     pick 034f8c9 Bổ sung ảnh
 3. Lưu và thoát: Sau khi chỉnh sửa, lưu lại và thoát khỏi trình soạn thảo. Git sẽ thực hiện rebase và loại bỏ commit Add commit1.
-4.Giải quyết xung đột (nếu có): Nếu có xung đột, Git sẽ yêu cầu bạn giải quyết các xung đột đó. Sau khi giải quyết,
+ trong vim bấm insert -> chỉnh sửa xong bấm nút Esc :wq --> sẽ có thông báo sau
+ PS D:\Personal Project\Git-basic-advance> git rebase -i HEAD~4
+Successfully rebased and updated refs/heads/Cherry-pick-Task3.
+
+4. Giải quyết xung đột (nếu có): Nếu có xung đột, Git sẽ yêu cầu bạn giải quyết các xung đột đó. Sau khi giải quyết,
  sử dụng các lệnh sau để tiếp tục quá trình rebase:
 git add <file đã sửa>
 git rebase --continue

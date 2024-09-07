@@ -3,7 +3,7 @@ Tiền đề
 Tạo 2 branch đồng thời từ staging:  feature/Git_3 và Cherry-pick-Task3
 - feature/Git_3 đã tạo PR với 2 commit và chưa merge
 - Cherry-pick-Task3 muốn lấy commit thứ 2 của feature/Git_3
-- Đã thực hiện push origin nhánh Cherry-pick-Task3
+- Đã thực hiện push origin nhánh Cherry-pick-Task3 với commit "Nội Dung Cherry Pick"
 Cách thực hiện : 
 PS D:\Personal Project\Git-basic-advance> git log feature/Git_3 --oneline
 ->  3aac36b (origin/feature/Git_3, feature/Git_3)  Task 3 Commit 2
@@ -17,3 +17,16 @@ PS D:\Personal Project\Git-basic-advance> git log feature/Git_3 --oneline
     261f89a Finish task 1
     4bfd308 Init Base
 
+- Đứng ở nhánh Cherry-pick-Task3 thực hiện cherrypick commit thứ 1 ở nhánh feature/Git_3
+    git cherry-pick 23b8eb2
+    
+ Sau khi cherry pick : git log
+    commit 01b6f102b0303763931385373732d87c22813c32 (HEAD -> Cherry-pick-Task3)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 22:29:10 2024 +0700
+        Task 3 Commit 1
+
+    commit f85ab22da0d119345df1e941e3a2f1ff99e2e0ed (origin/Cherry-pick-Task3)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 22:42:11 2024 +0700
+        Nội Dung Cherry Pick

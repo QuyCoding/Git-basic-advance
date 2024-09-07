@@ -1,0 +1,15 @@
+Tiền đề nhánh vừa tạo : feature/Git_2
+- Task 1 đã merge vào master 
+- Task 2 được tạo trước khi Task 1 được merge (master vẫn chưa pull source mới nhất về từ task1)
+
+Lúc này lịch sử git log của nhánh feature/Git_2 sẽ được lấy từ nhánh master ban đầu 
+• PS D:\Personal Project\Git-basic-advance> git log
+    commit 4bfd30851a367dc9776793c27a664e99ffa76a19 (HEAD -> feature/Git_2, origin/master, master)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 21:33:31 2024 +0700
+        Init Base
+• Có thể xem git log ở Task 1 bằng cách 
+    PS D:\Personal Project\Git-basic-advance> git log feature/Git_1  --oneline
+    dc69c1a (origin/feature/Git_1, feature/Git_1) Bổ Sung task
+    261f89a Finish task 1
+    4bfd308 (HEAD -> feature/Git_2, origin/master, master) Init Base        

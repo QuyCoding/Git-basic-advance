@@ -12,4 +12,45 @@ Lúc này lịch sử git log của nhánh feature/Git_2 sẽ được lấy t�
     PS D:\Personal Project\Git-basic-advance> git log feature/Git_1  --oneline
     dc69c1a (origin/feature/Git_1, feature/Git_1) Bổ Sung task
     261f89a Finish task 1
-    4bfd308 (HEAD -> feature/Git_2, origin/master, master) Init Base        
+    4bfd308 (HEAD -> feature/Git_2, origin/master, master) Init Base 
+• Sau khi commit task 2 lên và tạo PR(Chưa merge) 
+tại branch origin/feature/Git_2 thực hiện :
+    git pull origin master 
+    
+Lúc này ở branch 2 sẽ có log toàn bộ của toàn bộ task 1 và master 
+PS D:\Personal Project\Git-basic-advance> git log
+    • commit 969ad841aa7f39b13e1795021033f8301a9bebc8 (HEAD -> feature/Git_2)
+    Merge: 6c553c7 d02a5a6
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 22:04:48 2024 +0700
+        Merge branch 'master' of https://github.com/QuyCoding/Git-basic-advance into feature/Git_2
+
+    • commit d02a5a6085b2d987b9c6809581673c02ca2cf8f3 (origin/master, master)
+    Merge: 4bfd308 dc69c1a
+    Author: QuyCoding <150938824+QuyCoding@users.noreply.github.com>
+    Date:   Sat Sep 7 22:01:31 2024 +0700
+
+        Merge pull request #1 from QuyCoding/feature/Git_1
+
+        Finish task 1
+
+    • commit 6c553c77e2f7420887894080bc15d438d469a3d9 (origin/feature/Git_2)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 22:00:49 2024 +0700
+        Finis task 2
+
+    • commit dc69c1aee989df6f26204989844e9f379684b445 (origin/feature/Git_1, feature/Git_1)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 21:40:41 2024 +0700
+        Bổ Sung task
+
+    • commit 261f89a5eb04dde43d3c8f661744c46e66a07513
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 21:38:52 2024 +0700
+        Finish task 1
+
+    • commit 4bfd30851a367dc9776793c27a664e99ffa76a19
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 21:33:31 2024 +0700
+        Init Base
+           

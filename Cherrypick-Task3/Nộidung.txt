@@ -1,0 +1,69 @@
+Tiền đề
+
+Tạo 2 branch đồng thời từ staging:  feature/Git_3 và Cherry-pick-Task3
+- feature/Git_3 đã tạo PR với 2 commit và chưa merge
+- Cherry-pick-Task3 muốn lấy commit thứ 2 của feature/Git_3
+- Đã thực hiện push origin nhánh Cherry-pick-Task3 với commit "Nội Dung Cherry Pick"
+Cách thực hiện : 
+PS D:\Personal Project\Git-basic-advance> git log feature/Git_3 --oneline
+->  3aac36b (origin/feature/Git_3, feature/Git_3)  Task 3 Commit 2
+->  23b8eb2  Task 3 Commit 1
+    74be950 (HEAD -> Cherry-pick-Task3, origin/master, master) Merge pull request #2 from QuyCoding/feature/Git_2
+    0c59401 (origin/feature/Git_2, feature/Git_2) Bổ sung task 2
+    969ad84 Merge branch 'master' of https://github.com/QuyCoding/Git-basic-advance into feature/Git_2
+    d02a5a6 Merge pull request #1 from QuyCoding/feature/Git_1
+    6c553c7 Finis task 2
+    dc69c1a (origin/feature/Git_1, feature/Git_1) Bổ Sung task
+    261f89a Finish task 1
+    4bfd308 Init Base
+
+- Đứng ở nhánh Cherry-pick-Task3 thực hiện cherrypick commit thứ 1 ở nhánh feature/Git_3
+    git cherry-pick 23b8eb2
+    
+ Sau khi cherry pick : git log
+    commit 01b6f102b0303763931385373732d87c22813c32 (HEAD -> Cherry-pick-Task3)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 22:29:10 2024 +0700
+        Task 3 Commit 1
+
+    commit f85ab22da0d119345df1e941e3a2f1ff99e2e0ed (origin/Cherry-pick-Task3)
+    Author: quyhoangs <quyromutc@gmail.com>
+    Date:   Sat Sep 7 22:42:11 2024 +0700
+        Nội Dung Cherry Pick
+        
+- Thực hiện thêm 2 commit để reset 
+1.Chạy rebase tương tác: Chạy lệnh git rebase -i HEAD~n,
+ trong đó n là số lượng commit tính từ commit hiện tại mà bạn muốn hiển thị trong danh sách rebase.
+ Ví dụ, nếu bạn muốn làm việc với 3 commit gần nhất, chạy: 
+    git rebase -i HEAD~3
+2.Chỉnh sửa danh sách commit: Một cửa sổ sẽ xuất hiện với danh sách các commit gần đây. Ví dụ:
+    pick 1ba2e3d Add commit2
+    pick d28a27b Add commit1
+    pick 034f8c9 Bổ sung ảnh
+
+    Thay đổi dòng commit Add commit1 từ pick thành drop để loại bỏ commit này:
+
+    pick 1ba2e3d Add commit2
+    drop d28a27b Add commit1
+    pick 034f8c9 Bổ sung ảnh
+3. Lưu và thoát: Sau khi chỉnh sửa, lưu lại và thoát khỏi trình soạn thảo. Git sẽ thực hiện rebase và loại bỏ commit Add commit1.
+ trong vim bấm insert -> chỉnh sửa xong bấm nút Esc :wq --> sẽ có thông báo sau
+ PS D:\Personal Project\Git-basic-advance> git rebase -i HEAD~4
+Successfully rebased and updated refs/heads/Cherry-pick-Task3.
+
+4. Giải quyết xung đột (nếu có): Nếu có xung đột, Git sẽ yêu cầu bạn giải quyết các xung đột đó. Sau khi giải quyết,
+ sử dụng các lệnh sau để tiếp tục quá trình rebase:
+git add <file đã sửa>
+git rebase --continue
+5.Đẩy các thay đổi lên remote: Sau khi rebase thành công, bạn cần đẩy các thay đổi lên remote với tùy chọn --force để ghi đè 
+    lịch sử commit:
+    git push origin <branch-name> --force
+
+Note: 
+• git rebase -i chỉ nên sử dụng khi bạn làm việc trên nhánh chưa được chia sẻ rộng rãi hoặc nhánh PR chưa được merge. 
+    Nếu đã chia sẻ với nhiều người, hãy cẩn thận khi dùng rebase vì nó thay đổi lịch sử commit.
+• Nếu nhánh đã được chia sẻ, cân nhắc việc sử dụng git revert thay vì git rebase để tránh gây xáo trộn lịch sử commit.
+
+
+
+    

@@ -30,3 +30,36 @@ PS D:\Personal Project\Git-basic-advance> git log feature/Git_3 --oneline
     Author: quyhoangs <quyromutc@gmail.com>
     Date:   Sat Sep 7 22:42:11 2024 +0700
         Nội Dung Cherry Pick
+        
+- Thực hiện thêm 2 commit để reset 
+1.Chạy rebase tương tác: Chạy lệnh git rebase -i HEAD~n,
+ trong đó n là số lượng commit tính từ commit hiện tại mà bạn muốn hiển thị trong danh sách rebase.
+ Ví dụ, nếu bạn muốn làm việc với 3 commit gần nhất, chạy: 
+    git rebase -i HEAD~3
+2.Chỉnh sửa danh sách commit: Một cửa sổ sẽ xuất hiện với danh sách các commit gần đây. Ví dụ:
+    pick 1ba2e3d Add commit2
+    pick d28a27b Add commit1
+    pick 034f8c9 Bổ sung ảnh
+
+    Thay đổi dòng commit Add commit1 từ pick thành drop để loại bỏ commit này:
+
+    pick 1ba2e3d Add commit2
+    drop d28a27b Add commit1
+    pick 034f8c9 Bổ sung ảnh
+3. Lưu và thoát: Sau khi chỉnh sửa, lưu lại và thoát khỏi trình soạn thảo. Git sẽ thực hiện rebase và loại bỏ commit Add commit1.
+4.Giải quyết xung đột (nếu có): Nếu có xung đột, Git sẽ yêu cầu bạn giải quyết các xung đột đó. Sau khi giải quyết,
+ sử dụng các lệnh sau để tiếp tục quá trình rebase:
+git add <file đã sửa>
+git rebase --continue
+5.Đẩy các thay đổi lên remote: Sau khi rebase thành công, bạn cần đẩy các thay đổi lên remote với tùy chọn --force để ghi đè 
+    lịch sử commit:
+    git push origin <branch-name> --force
+
+Note: 
+• git rebase -i chỉ nên sử dụng khi bạn làm việc trên nhánh chưa được chia sẻ rộng rãi hoặc nhánh PR chưa được merge. 
+    Nếu đã chia sẻ với nhiều người, hãy cẩn thận khi dùng rebase vì nó thay đổi lịch sử commit.
+• Nếu nhánh đã được chia sẻ, cân nhắc việc sử dụng git revert thay vì git rebase để tránh gây xáo trộn lịch sử commit.
+
+
+
+    
